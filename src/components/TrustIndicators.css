@@ -1,0 +1,40 @@
+.trust-indicators {
+  background-color: #003366;
+  color: white;
+  padding: 3rem 0;
+}
+
+.trust-indicators .container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  text-align: center;
+  padding: 1rem;
+  min-width: 200px;
+}
+
+.trust-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.trust-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .trust-indicators .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trust-item {
+    margin-bottom: 1.5rem;
+  }
+}
