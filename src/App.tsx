@@ -21,6 +21,10 @@ const MarineConsultancyApp = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [chatMessages, setChatMessages] = useState([
+    { from: 'bot', text: 'Welcome to Marine Doctors! How can we help you today?' }
+  ]);
+  const [chatInput, setChatInput] = useState('');
 
   const services = [
     {
@@ -88,6 +92,40 @@ const MarineConsultancyApp = () => {
     });
   };
 
+  const getBotReply = (userMessage: string) => {
+    const msg = userMessage.toLowerCase();
+    if (msg.includes('hello') || msg.includes('hi')) {
+      return "Hello! How can we assist you with your marine needs today?";
+    }
+    if (msg.includes('services')) {
+      return "We offer boat building, marine consultancy, repair & maintenance, surveys, training, and engineering. Which are you interested in?";
+    }
+    if (msg.includes('contact') || msg.includes('email') || msg.includes('phone')) {
+      return "You can reach us at +254 (794) 32056 or haithamomar520@gmail.com.";
+    }
+    if (msg.includes('location') || msg.includes('where')) {
+      return "We are located at 123 Old Town, DownTown, Forodhani House.";
+    }
+    if (msg.includes('quote') || msg.includes('price')) {
+      return "Please provide details about your project or service needs, and we'll get back to you with a quote!";
+    }
+    return "Reachout to us in the E-mail! We'll get back to you soon.";
+  };
+
+  const handleChatSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!chatInput.trim()) return;
+    setChatMessages(prev => [...prev, { from: 'user', text: chatInput }]);
+    const reply = getBotReply(chatInput);
+    setTimeout(() => {
+      setChatMessages(prev => [
+        ...prev,
+        { from: 'bot', text: reply }
+      ]);
+    }, 800);
+    setChatInput('');
+  };
+
   return (
     <div className="app">
       <Navbar 
@@ -149,8 +187,30 @@ const MarineConsultancyApp = () => {
               <h4>Live Chat</h4>
             </div>
             <div className="chat-messages">
-              <p>Welcome to Marine Doctors! How can we help you today?</p>
+              {chatMessages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`chat-message ${msg.from === 'user' ? 'user' : 'bot'}`}
+                  style={{
+                    textAlign: msg.from === 'user' ? 'right' : 'left',
+                    margin: '4px 0'
+                  }}
+                >
+                  {msg.text}
+                </div>
+              ))}
             </div>
+            <form className="chat-input-area" onSubmit={handleChatSend} style={{ display: 'flex', gap: 4, marginTop: 8 }}>
+              <input
+                type="text"
+                value={chatInput}
+                onChange={e => setChatInput(e.target.value)}
+                placeholder="Type your message..."
+                className="chat-input"
+                style={{ flex: 1 }}
+              />
+              <button type="submit" className="btn-primary" style={{ padding: '0 12px' }}>Send</button>
+            </form>
           </div>
         )}
       </div>

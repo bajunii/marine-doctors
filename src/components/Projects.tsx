@@ -9,6 +9,7 @@ interface Testimonial {
 interface CaseStudy {
   title: string;
   description: string;
+  //img: string;
   src: string;
 }
 
@@ -31,17 +32,20 @@ const caseStudies: CaseStudy[] = [
   {
     title: "Fishing Fleet Modernization",
     description: "Complete overhaul of 12-vessel commercial fishing fleet with new engines and electronics.",
-    src: "https://source.unsplash.com/random/600x400/?fishing"
+    src: "/images/fishing fleet.jpeg",
+    //img: "/images/fishing fleet.jpeg"     
   },
   {
     title: "Custom Patrol Boat",
     description: "Design and build of a high-speed aluminum patrol boat for maritime law enforcement.",
-    src: "https://source.unsplash.com/random/600x400/?patrol-boat"
+    src: "/images/patrol boat.jpeg",
+    //img: "/images/patrol boat.jpeg"
   },
   {
     title: "Luxury Yacht Refit",
     description: "Full interior renovation and hybrid propulsion system installation for 80ft motor yacht.",
-    src: "https://source.unsplash.com/random/600x400/?yacht"
+    src: "/images/luxury yacht.jpeg",
+    //img: "/images/luxury yacht.jpeg"
   }
 ];
 
@@ -66,8 +70,7 @@ const Projects: React.FC = () => {
               <div className="case-study-image" style={{ backgroundImage: `url(${study.src})` }}></div>
               <div className="case-study-content">
                 <h3>{study.title}</h3>
-                <p>{study.description}</p>
-                <button className="btn-small">View Details</button>
+                <p>{study.description}</p>            
               </div>
             </div>
           ))}

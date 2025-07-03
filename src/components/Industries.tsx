@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; // Adjust the path as necessary
+import '../App.css'; 
 
 const industries = [
   'Commercial Fishing',

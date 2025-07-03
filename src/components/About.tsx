@@ -8,7 +8,7 @@ const About: React.FC = () => {
         <h2 className="section-title">About Marine Doctors</h2>
         <div className="about-content">
           <div className="about-text">
-            <h3>25 Years of Marine Excellence</h3>
+            <h3>2 Years of Marine Excellence</h3>
             <p>Founded in 2024, Marine Doctors has grown from a small boat repair shop to a full-service marine consultancy and manufacturing company serving clients worldwide.</p>
             <p>Our team of certified marine engineers, naval architects, and technicians bring decades of combined experience to every project.</p>
             <div className="certifications">
