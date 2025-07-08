@@ -72,7 +72,7 @@ const Footer: React.FC<FooterProps> = ({ services, scrollToSection, setActiveSer
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Marine Doctors. All rights reserved.</p>
           <div className="legal-links">
-            <a href="#">Privacy Policy</a>
+            <a href="#">Privacy Policy </a>
             <a href="#">Terms of Service</a>
             <a href="#">Sitemap</a>
           </div>
